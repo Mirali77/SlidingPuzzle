@@ -42,8 +42,11 @@ def rect_intersection(rect1: pygame.Rect, rect2: pygame.Rect):
     point2 = (rect1.x + rect1.width, rect1.y)
     point3 = (rect1.x, rect1.y + rect1.height)
     point4 = (rect1.x + rect1.width, rect1.y + rect1.height)
+    point5, point6, point7, point8 = rect1.midbottom, rect1.midtop, rect1.midleft, rect1.midright
     return is_point_in_rect(rect2, point1) or is_point_in_rect(rect2, point2) or \
-           is_point_in_rect(rect2, point3) or is_point_in_rect(rect2, point4)
+           is_point_in_rect(rect2, point3) or is_point_in_rect(rect2, point4) or\
+           rect2.x == rect1.x and rect2.y == rect1.y or is_point_in_rect(rect2, point5) or is_point_in_rect(rect2, point6) or \
+           is_point_in_rect(rect2, point7) or is_point_in_rect(rect2, point8)
 
 
 drag_flag = False

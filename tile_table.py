@@ -83,11 +83,12 @@ class TileTable(metaclass=Singleton):
         if len(self.clicked_tile) > 0:
             idx = self.clicked_tile[0]
             self.table[idx[0]][idx[1]].clicked = False
-            if abs(idx[0] - self.void_tile[0]) == 1 and idx[1] == self.void_tile[1] or abs(idx[1] - self.void_tile[1]) == 1 and idx[0] == self.void_tile[0]:
-                if init.rect_intersection(self.table[idx[0]][idx[1]].rect, self.table[self.void_tile[0]][self.void_tile[1]].rect):
-                    self.table[idx[0]][idx[1]].rect.center = self.table[idx[0]][idx[1]].place
-                    self.swap(idx, self.void_tile)
-                    self.void_tile = idx
+            if abs(idx[0] - self.void_tile[0]) == 1 and idx[1] == self.void_tile[1] or abs(idx[1] - self.void_tile[1]) == 1\
+                    and idx[0] == self.void_tile[0] and \
+                    init.rect_intersection(self.table[idx[0]][idx[1]].rect, self.table[self.void_tile[0]][self.void_tile[1]].rect):
+                self.table[idx[0]][idx[1]].rect.center = self.table[idx[0]][idx[1]].place
+                self.swap(idx, self.void_tile)
+                self.void_tile = idx
             else:
                 self.table[idx[0]][idx[1]].rect.center = self.table[idx[0]][idx[1]].place
             self.clicked_tile.clear()
