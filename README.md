@@ -1,3 +1,3 @@
 # SlidingPuzzle
 New game
-## You need to replace the closest tiles due to ascending order
+## You need to slide tiles to the void(black tile) to assemble the puzzle!
