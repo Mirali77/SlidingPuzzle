@@ -7,6 +7,9 @@ while running:
     # держим цикл на правильной скорости
     clock.tick(FPS)
 
+    # Название окна
+    pygame.display.set_caption('Sliding Puzzle')
+
     # Ввод процесса (события)
     for event in pygame.event.get():
         # проверить закрытие окна
